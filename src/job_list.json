@@ -1,0 +1,52 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Frontend Developer",
+      "category": "Frontend",
+      "company": "TechCorp",
+      "description": "We're looking for a Vue.js developer...",
+      "location": "Remote"
+    },
+    {
+      "id": 2,
+      "title": "Backend Developer",
+      "category": "Backend",
+      "company": "DevFirm",
+      "description": "Looking for a Node.js expert...",
+      "location": "New York"
+    },
+    {
+      "id": 3,
+      "title": "Fullstack Developer",
+      "category": "Fullstack",
+      "company": "WebSolutions",
+      "description": "We're looking for a fullstack developer...",
+      "location": "Remote"
+    },
+    {
+      "id": 4,
+      "title": "DevOps Engineer",
+      "category": "DevOps",
+      "company": "CloudOps",
+      "description": "We're looking for a DevOps engineer...",
+      "location": "Remote"
+    },
+    {
+      "id": 5,
+      "title": "QA Engineer",
+      "category": "QA",
+      "company": "TestCorp",
+      "description": "We're looking for a QA engineer...",
+      "location": "Remote"
+    },
+    {
+      "id": 6,
+      "title": "UI/UX Designer",
+      "category": "Design",
+      "company": "DesignSolutions",
+      "description": "We're looking for a UI/UX designer...",
+      "location": "Remote"
+    }
+  ]
+}
