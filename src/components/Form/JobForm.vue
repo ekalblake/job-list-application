@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ROUTE_NAME } from '@/constant'
-import { useJobStore } from '@/stores/job'
+import { useJobStore } from '@/stores/jobStore/job'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 

@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { jobService } from '@/services/JobServices'
+import { jobService } from '@/services/jobServices/JobServices'
 import IJob from '@/interfaces/IJob'
 
 export const useJobStore = defineStore('job', () => {
@@ -9,13 +9,8 @@ export const useJobStore = defineStore('job', () => {
   const currentJob = ref<IJob | null>(null)
 
   const searchByTitle = async (name: string) => {
-    if (!name) {
-      const response = await jobService.searchJob()
-      jobList.value = response
-    } else {
-      const response = await jobService.searchByTitle(name)
-      jobList.value = response
-    }
+    const response = name ? await jobService.searchByTitle(name) : await jobService.searchJob()
+    jobList.value = response
   }
 
   const searchByCategory = async (category: string) => {

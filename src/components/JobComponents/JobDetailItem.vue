@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import IJob from '@/interfaces/IJob'
 
-import { useJobStore } from '@/stores/job'
+import { useJobStore } from '@/stores/jobStore/job'
 import { computed, ref } from 'vue'
 import SubmitForm from '../Form/SubmitForm.vue'
 

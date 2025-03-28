@@ -34,6 +34,7 @@ const setCurrentJob = (job: IJob) => {
     v-if="job"
     :border="currentId == job.id ? `opacity-100 sm info` : 'opacity-25 sm'"
     class="my-2"
+    :class="currentId == job.id ? 'bg-info' : ''"
     @click="setCurrentJob(job)"
   >
     <v-card-item>
@@ -46,7 +47,7 @@ const setCurrentJob = (job: IJob) => {
       <template v-slot:append>
         {{ job.company }}
       </template>
-      <v-card-subtitle class="font-weight-bold text-green-darken-3" v-if="job.salary">
+      <v-card-subtitle class="font-weight-bold text-green-darken-4" v-if="job.salary">
         {{ salaryParsed }}
       </v-card-subtitle>
     </v-card-item>

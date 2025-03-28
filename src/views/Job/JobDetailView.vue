@@ -1,23 +1,28 @@
-<script setup lang="ts">
-import { useJobStore } from '@/stores/job'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+<script lang="ts">
+import { useJobStore } from '@/stores/jobStore/job'
+import { computed, defineComponent, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import JobDetailItem from '@/components/JobComponents/JobDetailItem.vue'
 
-const route = useRoute()
+export default defineComponent({
+  components: { JobDetailItem },
+  setup() {
+    const route = useRoute()
+    const jobStore = useJobStore()
 
-const jobStore = useJobStore()
+    const currentJob = computed(() => jobStore.currentJob)
+    const searchQuery = computed(() => route.params.id as string | undefined)
 
-const currentJob = computed(() => jobStore.currentJob)
+    const setCurrentJob = () => {
+      jobStore.setCurrentJob(searchQuery.value)
+    }
 
-const searchQuery = computed(() => route.params.id as string | undefined)
+    onMounted(() => {
+      setCurrentJob()
+    })
 
-const setCurrentJob = () => {
-  jobStore.setCurrentJob(searchQuery.value)
-}
-
-onMounted(() => {
-  setCurrentJob()
+    return { currentJob }
+  },
 })
 </script>
 

@@ -7,7 +7,7 @@ const { mobile } = useDisplay()
 
 <template>
   <v-container class="h-100 justify-center align-content-center" :class="mobile ? 'w-100' : 'w-50'">
-    <v-card class="text-center" border="opacity-25 sm">
+    <v-card class="text-center">
       <v-card-item>
         <v-card-title>
           Welcome to <span class="font-weight-bold">FindJobs<strong>EZ</strong></span>

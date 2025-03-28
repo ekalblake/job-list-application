@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import JobForm from '@/components/Form/JobForm.vue'
 import { computed, onMounted, ref, watch } from 'vue'
-import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
-import { useJobStore } from '@/stores/job'
+import { useJobStore } from '@/stores/jobStore/job'
 import JobItem from '@/components/JobComponents/JobItem.vue'
 import LoaderComponent from '@/components/ExtraComponents/LoaderComponent.vue'
 import { ROUTE_NAME } from '@/constant'
@@ -46,6 +46,10 @@ const numberOfPages = computed(() => {
 })
 
 const onMountedJobList = async () => {
+  if (route.params.id) {
+    return
+  }
+
   isLoading.value = true
   try {
     if (categoryQuery.value) {
@@ -61,10 +65,7 @@ const onMountedJobList = async () => {
 }
 
 const searchByTitle = (title: string) => {
-  if (mobile) {
-    jobDialog.value = true
-  }
-
+  jobStore.searchByTitle(title)
   if (!title) {
     router.replace({
       name: ROUTE_NAME.JOB_LIST,
@@ -84,7 +85,7 @@ onMounted(async () => {
 <template>
   <v-container class="h-100">
     <JobForm @search="searchByTitle" />
-    <v-card class="fill-height" min-height="500">
+    <v-card class="fill-height my-2" min-height="500">
       <v-row>
         <v-col cols="12" sm="12" md="5">
           <LoaderComponent v-if="isLoading" :set-min-height="'300'" />
@@ -114,7 +115,7 @@ onMounted(async () => {
           </template>
         </v-col>
         <v-col class="d-none d-md-block" cols="12" md="7">
-          <router-view v-slot="{ Component }">
+          <router-view :key="$route.fullPath" v-slot="{ Component }">
             <v-fade-transition hide-on-leave>
               <component :is="Component" />
             </v-fade-transition>
@@ -124,7 +125,7 @@ onMounted(async () => {
     </v-card>
     <!-- v-dialog solo si ES móvil -->
     <v-dialog class="overflow-auto" v-if="mobile" v-model="jobDialog">
-      <RouterView />
+      <RouterView :key="$route.fullPath" />
     </v-dialog>
   </v-container>
 </template>
