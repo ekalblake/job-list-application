@@ -5,17 +5,15 @@ import { useJobStore } from '@/stores/jobStore/job'
 import { computed, ref } from 'vue'
 import SubmitForm from '../Form/SubmitForm.vue'
 
-const props = defineProps<{
-  job: IJob
-}>()
-
 const jobStore = useJobStore()
+
+const job = computed<IJob>(() => jobStore.currentJob)
 
 const formDialog = ref<boolean>(false)
 
 const salaryParsed = computed(() => {
-  if (props.job.salary) {
-    return `${props.job.salary.toLocaleString('en-US', {
+  if (job.value.salary) {
+    return `${job.value.salary.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
     })}/year`
@@ -23,14 +21,22 @@ const salaryParsed = computed(() => {
 })
 
 const applyNow = () => {
-  jobStore.updateApplied(props.job.id)
+  jobStore.updateApplied(job.value.id)
 
   alert('You have applied for this job!')
   formDialog.value = !formDialog.value
 }
 </script>
 <template>
-  <v-card class="overflow-auto" v-if="job">
+  <v-container v-if="!job" class="fill-height d-flex align-center justify-center">
+    <v-card :elevation="0" min-width="300" class="text-center pa-4">
+      <v-card-item>
+        <v-card-title> Please select a job. </v-card-title>
+        <v-icon color="warning"> mdi-alert-circle </v-icon>
+      </v-card-item>
+    </v-card>
+  </v-container>
+  <v-card class="overflow-auto" v-else>
     <v-card-item>
       <v-card-title>
         {{ job.title }}
@@ -42,14 +48,13 @@ const applyNow = () => {
         {{ job.location }}
       </v-card-subtitle>
       <template v-slot:append>
-        <v-btn icon variant="outlined" color="success" @click="jobStore.deleteCurrentJob()">
-          <v-icon> mdi-close</v-icon>
-        </v-btn>
+        <slot></slot>
       </template>
     </v-card-item>
     <v-card-text v-if="job.salary" class="text-green-darken-3 font-weight-bold text-h6">
       {{ salaryParsed }}
     </v-card-text>
+    <slot name="detail"></slot>
     <v-card-text>
       <p class="text-h6">About the job</p>
       <p class="text-body-1" v-html="job.description"></p>

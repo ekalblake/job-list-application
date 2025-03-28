@@ -4,6 +4,7 @@ import JobView from '@/views/Job/JobView.vue'
 
 import { ROUTE_NAME } from '@/constant'
 import JobDetailView from '@/views/Job/JobDetailView.vue'
+import NotFoundView from '@/views/ExtraView/NotFoundView.vue'
 
 const routes = [
   {
@@ -15,18 +16,17 @@ const routes = [
     path: '/job-list',
     name: ROUTE_NAME.JOB_LIST,
     component: JobView,
-    children: [
-      {
-        path: ':id',
-        name: ROUTE_NAME.JOB_DETAIL,
-        component: JobDetailView,
-      },
-    ],
+  },
+  {
+    path: '/job-list/:id',
+    name: ROUTE_NAME.JOB_DETAIL,
+    component: JobDetailView,
   },
   {
     path: '/about',
     name: 'about',
   },
+  { path: '/:pathMatch(.*)*', name: ROUTE_NAME.NOT_FOUND, component: NotFoundView },
 ]
 
 const router = createRouter({

@@ -1,15 +1,18 @@
 <script lang="ts" setup>
-import { ROUTE_NAME } from '@/constant'
 import IJob from '@/interfaces/IJob'
+import { useJobStore } from '@/stores/jobStore/job'
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const props = defineProps<{
   job: IJob
   currentId: number | undefined
 }>()
+
+const emit = defineEmits<{
+  (event: 'set-job', jobid: number): void
+}>()
+
+const jobStore = useJobStore()
 
 const setHTML = computed(() => props.job.description.substring(0, 100).concat('...'))
 
@@ -21,13 +24,6 @@ const salaryParsed = computed(() => {
     })}/year`
   }
 })
-
-const setCurrentJob = (job: IJob) => {
-  router.replace({
-    name: ROUTE_NAME.JOB_DETAIL,
-    params: { id: job.id },
-  })
-}
 </script>
 <template>
   <v-card
@@ -35,7 +31,7 @@ const setCurrentJob = (job: IJob) => {
     :border="currentId == job.id ? `opacity-100 sm info` : 'opacity-25 sm'"
     class="my-2"
     :class="currentId == job.id ? 'bg-info' : ''"
-    @click="setCurrentJob(job)"
+    @click="$emit('set-job', job.id)"
   >
     <v-card-item>
       <v-card-title font-weight-bold>

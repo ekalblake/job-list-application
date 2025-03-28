@@ -16,14 +16,14 @@ export class JobServices {
       setTimeout(() => {
         const lowerName = name.toLocaleLowerCase()
 
-        const returnJob = jobs.filter(
+        const returnJobs = jobs.filter(
           (job) =>
             job.title.toLocaleLowerCase().includes(lowerName) ||
             job.company.toLocaleLowerCase().includes(lowerName) ||
             job.location.toLocaleLowerCase().includes(lowerName),
         )
 
-        resolve(returnJob)
+        resolve(returnJobs)
       }, 1000)
     })
   }
@@ -31,10 +31,10 @@ export class JobServices {
   public async searchByCategory(name: string): Promise<IJob[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const returnJob = jobs.filter((job) =>
+        const returnJobs = jobs.filter((job) =>
           job.category.toLocaleLowerCase().includes(name.toLocaleLowerCase()),
         )
-        resolve(returnJob)
+        resolve(returnJobs)
       }, 1000)
     })
   }

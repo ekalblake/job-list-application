@@ -8,6 +8,8 @@ import JobItem from '@/components/JobComponents/JobItem.vue'
 import LoaderComponent from '@/components/ExtraComponents/LoaderComponent.vue'
 import { ROUTE_NAME } from '@/constant'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
+import JobDetailView from './JobDetailView.vue'
+import JobDetailItem from '@/components/JobComponents/JobDetailItem.vue'
 
 const { mobile } = useDisplay()
 
@@ -44,6 +46,10 @@ const numberOfPages = computed(() => {
     return Math.ceil(jobList.value!.length / perPage.value)
   }
 })
+
+const setJob = (jobid: number) => {
+  jobStore.setCurrentJob(jobid.toString())
+}
 
 const onMountedJobList = async () => {
   if (route.params.id) {
@@ -88,7 +94,9 @@ onMounted(async () => {
     <v-card class="fill-height my-2" min-height="500">
       <v-row>
         <v-col cols="12" sm="12" md="5">
-          <LoaderComponent v-if="isLoading" :set-min-height="'300'" />
+          <LoaderComponent v-if="isLoading" :set-min-height="'300'">
+            <h4>Looking for jobs...</h4>
+          </LoaderComponent>
           <template v-else>
             <template v-if="jobList && jobList.length > 0">
               <JobItem
@@ -96,6 +104,7 @@ onMounted(async () => {
                 v-for="job of jobDisplayed"
                 :key="job.id"
                 :job="job"
+                @set-job="setJob"
                 :current-id="currentJob?.id"
               />
               <v-pagination v-model="page" :length="numberOfPages" rounded="circle"> </v-pagination>
@@ -115,17 +124,28 @@ onMounted(async () => {
           </template>
         </v-col>
         <v-col class="d-none d-md-block" cols="12" md="7">
-          <router-view :key="$route.fullPath" v-slot="{ Component }">
-            <v-fade-transition hide-on-leave>
-              <component :is="Component" />
-            </v-fade-transition>
-          </router-view>
+          <JobDetailItem>
+            <template #detail>
+              <v-card-text>
+                <v-btn
+                  @click="
+                    $router.push({ name: ROUTE_NAME.JOB_DETAIL, params: { id: currentJob.id } })
+                  "
+                  variant="elevated"
+                  color="success"
+                  >View detail</v-btn
+                >
+              </v-card-text>
+            </template>
+            <v-btn icon variant="outlined" color="success" @click="jobStore.deleteCurrentJob()">
+              <v-icon> mdi-close</v-icon>
+            </v-btn>
+          </JobDetailItem>
         </v-col>
       </v-row>
     </v-card>
-    <!-- v-dialog solo si ES móvil -->
     <v-dialog class="overflow-auto" v-if="mobile" v-model="jobDialog">
-      <RouterView :key="$route.fullPath" />
+      <JobDetailView />
     </v-dialog>
   </v-container>
 </template>
