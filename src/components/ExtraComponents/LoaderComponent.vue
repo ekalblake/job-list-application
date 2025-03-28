@@ -1,5 +1,5 @@
 <template>
-  <v-card class="loading-center bg-purple-secondary h-100" :style="{ 'min-height': setMinHeight }">
+  <v-card class="loading-center h-100" :style="{ 'min-height': setMinHeight }">
     <v-progress-circular indeterminate color="black"> </v-progress-circular>
     <h4>Looking for jobs...</h4>
   </v-card>

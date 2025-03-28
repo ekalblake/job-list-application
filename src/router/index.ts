@@ -17,11 +17,6 @@ const routes = [
     component: JobView,
     children: [
       {
-        path: '',
-        name: ROUTE_NAME.JOB_DETAIL,
-        component: JobDetailView,
-      },
-      {
         path: ':id',
         name: ROUTE_NAME.JOB_DETAIL,
         component: JobDetailView,

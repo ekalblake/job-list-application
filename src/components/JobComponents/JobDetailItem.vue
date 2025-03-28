@@ -15,10 +15,10 @@ const formDialog = ref<boolean>(false)
 
 const salaryParsed = computed(() => {
   if (props.job.salary) {
-    return props.job.salary.toLocaleString('en-US', {
+    return `${props.job.salary.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
-    })
+    })}/year`
   }
 })
 
@@ -30,7 +30,7 @@ const applyNow = () => {
 }
 </script>
 <template>
-  <v-card v-if="job">
+  <v-card class="overflow-auto" v-if="job">
     <v-card-item>
       <v-card-title>
         {{ job.title }}
@@ -42,13 +42,13 @@ const applyNow = () => {
         {{ job.location }}
       </v-card-subtitle>
       <template v-slot:append>
-        <v-btn icon variant="outlined" color="primary">
-          <v-icon> mdi-share</v-icon>
+        <v-btn icon variant="outlined" color="success" @click="jobStore.deleteCurrentJob()">
+          <v-icon> mdi-close</v-icon>
         </v-btn>
       </template>
     </v-card-item>
     <v-card-text v-if="job.salary" class="text-green-darken-3 font-weight-bold text-h6">
-      {{ salaryParsed }} / year
+      {{ salaryParsed }}
     </v-card-text>
     <v-card-text>
       <p class="text-h6">About the job</p>

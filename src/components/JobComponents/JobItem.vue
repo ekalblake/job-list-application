@@ -15,17 +15,17 @@ const setHTML = computed(() => props.job.description.substring(0, 100).concat('.
 
 const salaryParsed = computed(() => {
   if (props.job.salary) {
-    return props.job.salary.toLocaleString('en-US', {
+    return `${props.job.salary.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
-    })
+    })}/year`
   }
 })
 
 const setCurrentJob = (job: IJob) => {
   router.replace({
     name: ROUTE_NAME.JOB_DETAIL,
-    params: { id: job.id.toString() },
+    params: { id: job.id },
   })
 }
 </script>
@@ -33,7 +33,7 @@ const setCurrentJob = (job: IJob) => {
   <v-card
     v-if="job"
     :border="currentId == job.id ? `opacity-100 sm info` : 'opacity-25 sm'"
-    class="my-2 opacity-100 active"
+    class="my-2"
     @click="setCurrentJob(job)"
   >
     <v-card-item>
@@ -47,7 +47,7 @@ const setCurrentJob = (job: IJob) => {
         {{ job.company }}
       </template>
       <v-card-subtitle class="font-weight-bold text-green-darken-3" v-if="job.salary">
-        {{ salaryParsed }} / year
+        {{ salaryParsed }}
       </v-card-subtitle>
     </v-card-item>
     <v-card-text v-html="setHTML"> </v-card-text>

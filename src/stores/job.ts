@@ -28,14 +28,14 @@ export const useJobStore = defineStore('job', () => {
     }
   }
 
-  const setCurrentJob = async (jobid: string | undefined) => {
+  const setCurrentJob = (jobid: string | undefined) => {
     if (!jobid) return
     const findJob = jobList.value?.find((item) => item.id == Number(jobid))
 
     currentJob.value = findJob
   }
 
-  const updateApplied = async (jobid: number) => {
+  const updateApplied = (jobid: number) => {
     if (!jobid) return
     const findJob = jobList.value?.find((item) => item.id == jobid)
 
@@ -44,5 +44,17 @@ export const useJobStore = defineStore('job', () => {
     }
   }
 
-  return { searchByTitle, setCurrentJob, searchByCategory, updateApplied, jobList, currentJob }
+  const deleteCurrentJob = () => {
+    currentJob.value = null
+  }
+
+  return {
+    searchByTitle,
+    setCurrentJob,
+    searchByCategory,
+    updateApplied,
+    deleteCurrentJob,
+    jobList,
+    currentJob,
+  }
 })

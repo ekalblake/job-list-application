@@ -29,7 +29,7 @@ const currentJob = computed(() => jobStore.currentJob)
 
 const page = ref<number>(1)
 
-const perPage = ref<number>(7)
+const perPage = ref<number>(5)
 
 const jobDialog = ref<boolean>(false)
 
@@ -61,7 +61,10 @@ const onMountedJobList = async () => {
 }
 
 const searchByTitle = (title: string) => {
-  jobDialog.value = true
+  if (mobile) {
+    jobDialog.value = true
+  }
+
   if (!title) {
     router.replace({
       name: ROUTE_NAME.JOB_LIST,
@@ -77,21 +80,18 @@ const searchByTitle = (title: string) => {
 onMounted(async () => {
   await onMountedJobList()
 })
-
-/* onBeforeRouteUpdate(async (to, from) => {
-  await onMountedJobList()
-}) */
 </script>
 <template>
   <v-container class="h-100">
     <JobForm @search="searchByTitle" />
-    <v-card min-height="500">
+    <v-card class="fill-height" min-height="500">
       <v-row>
         <v-col cols="12" sm="12" md="5">
           <LoaderComponent v-if="isLoading" :set-min-height="'300'" />
           <template v-else>
-            <template v-if="jobList">
+            <template v-if="jobList && jobList.length > 0">
               <JobItem
+                @click="jobDialog = !jobDialog"
                 v-for="job of jobDisplayed"
                 :key="job.id"
                 :job="job"
@@ -99,14 +99,31 @@ onMounted(async () => {
               />
               <v-pagination v-model="page" :length="numberOfPages" rounded="circle"> </v-pagination>
             </template>
+            <template v-else>
+              <v-card class="fill-height d-flex align-center justify-center">
+                <v-card :elevation="0" min-width="300" class="text-center pa-4">
+                  <v-card-item>
+                    <v-card-title> No jobs found. <br />Try another search </v-card-title>
+                  </v-card-item>
+                  <v-card-text>
+                    <v-icon size="50" color="warning"> mdi-alert-circle </v-icon>
+                  </v-card-text>
+                </v-card>
+              </v-card>
+            </template>
           </template>
         </v-col>
         <v-col class="d-none d-md-block" cols="12" md="7">
-          <RouterView />
+          <router-view v-slot="{ Component }">
+            <v-fade-transition hide-on-leave>
+              <component :is="Component" />
+            </v-fade-transition>
+          </router-view>
         </v-col>
       </v-row>
     </v-card>
-    <v-dialog v-model="jobDialog" v-if="mobile">
+    <!-- v-dialog solo si ES móvil -->
+    <v-dialog class="overflow-auto" v-if="mobile" v-model="jobDialog">
       <RouterView />
     </v-dialog>
   </v-container>

@@ -13,7 +13,7 @@
     {
       "id": 2,
       "title": "Senior Front End Angular Engineer",
-      "category": "Backend",
+      "category": "Frontend",
       "company": "DevFirm",
       "description": "I’m helping DevFirm Solutions find a top candidate to join their team full-time for the role of Senior Front End Angular Engineer. <br><br> Providing high-quality software engineering services with Nearshore teams across Latin America <br><br> Compensation: USD 3.5K - 4.5K/month. + Paid time off <br><br> Location: Remote (anywhere). <br><br> Mission of DevFirm Solutions: Great software solutions created by people that love what they do! 🚀 <br> What makes you a strong candidate: <br>You are expert in Angular, and Front-end development. You are proficient in .NET, and C#. English - Conversational. <br> <br> Responsibilities and more: We are looking for a Senior Frontend Engineer with 4+ years of experience to lead and develop on a long-term project with our Colorado-based client. <br> A successful candidate will have the following technical qualifications: At least four years of professional experience with: <br>⚡Angular. <br>⚡Frontend Development. <br>⚡C# <br>⚡Ionic is a plus <br><br> Soft skills: <br>⚡ Great attitude and very independent worker. <br>⚡ Love talking to people on the business side to understand requirements. <br><br> Job benefits: Paid time off. Remote offices. Flexible work hours. Technology allowances. Independent contractor status. <br>Technology reimbursement programs.",
       "location": "Remote",
@@ -22,10 +22,10 @@
     },
     {
       "id": 3,
-      "title": "Fullstack Developer .NET/Angular",
+      "title": "Senior Full Stack Node/Angular",
       "category": "Fullstack",
       "company": "WebSolutions",
-      "description": "We're looking for a fullstack developer",
+      "description": "Job Title: Frontend Developer<br>Job Type: Full-time, Contractor<br>Location: Remote<br>About Us:<br>Our mission at micro1 is to match the most talented people in the world with their dream jobs. If you are looking to be at the forefront of AI innovation and work with some of the fastest growing companies in Silicon Valley, we invite you to apply for a role. By joining the micro1 community, your resume will become visible to top industry leaders, unlocking access to the best career opportunities on the market.<br>Job Summary:<br>We are seeking a highly skilled and motivated Frontend Developer to join our dynamic team. You will play a crucial role in designing and implementing exceptional user interfaces using cutting-edge technologies such as React, Typescript, and Next.js. This is a fantastic opportunity for a seasoned developer who is passionate about crafting high-quality, robust, and scalable front-end solutions.<br>Key Responsibilities:<br>Develop and maintain scalable web applications using React, Typescript, and Next.js.<br>Collaborate with cross-functional teams to design, develop, and deploy new features.<br>Ensure the technical feasibility of UI/UX designs and optimize applications for maximum speed and scalability.<br>Utilize Tailwind CSS for styling and ensure the aesthetics and responsiveness of web applications.<br>Integrate third-party services and APIs with Supabase.<br>Participate in code reviews, providing constructive feedback and mentorship to junior developers.<br>Continuously improve the user experience by implementing best practices and staying current with industry trends.<br>Required Skills and Qualifications:<br>Senior-level expertise in React with a strong understanding of its core principles.<br>Proficiency in Typescript and Next.js.<br>Extensive experience in utilizing Tailwind CSS and RadixUI for creating responsive and visually appealing designs.<br>Strong problem-solving skills and attention to detail.<br>Excellent written and verbal communication skills.<br>Proven ability to work independently in a remote setup.<br>Strong teamwork and collaboration skills.<br>Preferred Qualifications:<br>Experience with Supabase for backend integration.<br>Previous experience mentoring or leading a team of developers.<br>Familiar with agile development methodologies.r",
       "location": "New York",
       "applied": false
     },

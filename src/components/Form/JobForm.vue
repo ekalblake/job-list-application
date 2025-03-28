@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ROUTE_NAME } from '@/constant'
+import { useJobStore } from '@/stores/job'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -7,15 +8,18 @@ const emit = defineEmits<{
   (event: 'search', value: string): void
 }>()
 
+const jobStore = useJobStore()
+
 const text = ref<string>('')
 
 const categoryList = ref(['Frontend', 'Backend', 'DevOps', 'FullStack'])
 
-const requiredForm = (value: string) => !!value || 'Job title is required'
-
 const router = useRouter()
 
 const searchJob = (title: string) => {
+  if (jobStore.currentJob) {
+    jobStore.deleteCurrentJob()
+  }
   if (!title) {
     router.push({ name: ROUTE_NAME.JOB_LIST })
   } else {
@@ -32,12 +36,12 @@ const searchCategory = (event: string) => {
   <v-card>
     <v-card-text class="d-flex align-center justify-center">
       <v-row>
-        <v-col cols="8" md="9">
+        <v-col cols="12" sm="9" md="9">
           <v-tooltip text="Job title, company name, or location" location="bottom">
             <template v-slot:activator="{ props }">
               <v-text-field
                 v-bind="props"
-                :rules="[requiredForm]"
+                hide-details
                 v-model="text"
                 variant="outlined"
                 placeholder="Job title..."
@@ -50,8 +54,9 @@ const searchCategory = (event: string) => {
             </template>
           </v-tooltip>
         </v-col>
-        <v-col cols="4" md="3">
+        <v-col cols="12" sm="3" md="3">
           <v-select
+            variant="outlined"
             :items="categoryList"
             placeholder="Category"
             hide-details
