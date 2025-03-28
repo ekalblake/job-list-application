@@ -6,7 +6,9 @@ import { RouterLink, RouterView } from 'vue-router'
   <v-app>
     <v-app-bar app>
       <template v-slot:prepend>
-        <v-img width="50" src="@/assets/logo.svg"></v-img>
+        <RouterLink class="d-none d-md-block pr-4 mr-2" to="/">
+          <v-img width="50" src="@/assets/logo.svg"></v-img>
+        </RouterLink>
       </template>
       <v-tabs>
         <v-tab to="/"> Home </v-tab>

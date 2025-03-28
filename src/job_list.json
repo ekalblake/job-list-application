@@ -2,51 +2,116 @@
   "jobs": [
     {
       "id": 1,
-      "title": "Frontend Developer",
+      "title": "Frontend Developer React + AWS",
       "category": "Frontend",
       "company": "TechCorp",
-      "description": "We're looking for a Vue.js developer...",
-      "location": "Remote"
+      "description": "🚀¿You like challanges and you aim to always win? 🚀<br> We are looking for a Dev Frontend Ssr/Sr -React.js + Typescript to be part of this big family. <br> Skills required: <br>TypeScript <br>React <br>Next.js <br>TailwindCSS <br> Radix-ui <br>testing-library<br> playwright <br>Google Cloud <br>GitHub <br>API Integrations <br>Oauth2 <br> <br>Beneficios <br> <br👉 Formation plan. <br> <br>🏥Health ensurance <br><br><br>¿Do you wanna be part of this team and live this experience? 💥 <br><br><br>Contact us! 📩😉",
+      "location": "Remote",
+      "applied": false,
+      "salary": 100000
     },
     {
       "id": 2,
-      "title": "Backend Developer",
+      "title": "Senior Front End Angular Engineer",
       "category": "Backend",
       "company": "DevFirm",
-      "description": "Looking for a Node.js expert...",
-      "location": "New York"
+      "description": "I’m helping DevFirm Solutions find a top candidate to join their team full-time for the role of Senior Front End Angular Engineer. <br><br> Providing high-quality software engineering services with Nearshore teams across Latin America <br><br> Compensation: USD 3.5K - 4.5K/month. + Paid time off <br><br> Location: Remote (anywhere). <br><br> Mission of DevFirm Solutions: Great software solutions created by people that love what they do! 🚀 <br> What makes you a strong candidate: <br>You are expert in Angular, and Front-end development. You are proficient in .NET, and C#. English - Conversational. <br> <br> Responsibilities and more: We are looking for a Senior Frontend Engineer with 4+ years of experience to lead and develop on a long-term project with our Colorado-based client. <br> A successful candidate will have the following technical qualifications: At least four years of professional experience with: <br>⚡Angular. <br>⚡Frontend Development. <br>⚡C# <br>⚡Ionic is a plus <br><br> Soft skills: <br>⚡ Great attitude and very independent worker. <br>⚡ Love talking to people on the business side to understand requirements. <br><br> Job benefits: Paid time off. Remote offices. Flexible work hours. Technology allowances. Independent contractor status. <br>Technology reimbursement programs.",
+      "location": "Remote",
+      "applied": false,
+      "salary": 40000
     },
     {
       "id": 3,
-      "title": "Fullstack Developer",
+      "title": "Fullstack Developer .NET/Angular",
       "category": "Fullstack",
       "company": "WebSolutions",
-      "description": "We're looking for a fullstack developer...",
-      "location": "Remote"
+      "description": "We're looking for a fullstack developer",
+      "location": "New York",
+      "applied": false
     },
     {
       "id": 4,
-      "title": "DevOps Engineer",
+      "title": "DevOps Engineer AWS/GCP/Azure + CI/CD",
       "category": "DevOps",
       "company": "CloudOps",
-      "description": "We're looking for a DevOps engineer...",
-      "location": "Remote"
+      "description": "We're looking for a DevOps engineer<br> with 5years experience <br> 100K Salary",
+      "location": "Remote",
+      "applied": false,
+      "salary": 400000
     },
     {
       "id": 5,
       "title": "QA Engineer",
       "category": "QA",
       "company": "TestCorp",
-      "description": "We're looking for a QA engineer...",
-      "location": "Remote"
+      "description": "We're looking for a QA engineer",
+      "location": "Remote",
+      "applied": false
     },
     {
       "id": 6,
       "title": "UI/UX Designer",
       "category": "Design",
       "company": "DesignSolutions",
-      "description": "We're looking for a UI/UX designer...",
-      "location": "Remote"
+      "description": "We're looking for a UI/UX designer",
+      "location": "Remote",
+      "applied": false,
+      "salary": 22222
+    },
+    {
+      "id": 7,
+      "title": "Product Manager",
+      "category": "Management",
+      "company": "ProductCorp",
+      "description": "We're looking for a product manager",
+      "location": "Remote",
+      "applied": false,
+      "salary": 12345
+    },
+    {
+      "id": 8,
+      "title": "Data Scientist",
+      "category": "Data",
+      "company": "DataSolutions",
+      "description": "We're looking for a data scientist",
+      "location": "Remote",
+      "applied": false
+    },
+    {
+      "id": 9,
+      "title": "Machine Learning Engineer",
+      "category": "Machine Learning",
+      "company": "MLCorp",
+      "description": "We're looking for a machine learning engineer",
+      "location": "Remote",
+      "applied": false
+    },
+    {
+      "id": 10,
+      "title": "Cybersecurity Analyst",
+      "category": "Security",
+      "company": "SecurityCorp",
+      "description": "We're looking for a cybersecurity analyst",
+      "location": "Remote",
+      "applied": false
+    },
+    {
+      "id": 11,
+      "title": "Frontend Developer Vue",
+      "category": "Frontend",
+      "company": "TechCorp",
+      "description": "We're looking for a Vue.js developer",
+      "location": "Remote",
+      "applied": false
+    },
+    {
+      "id": 12,
+      "title": "Frontend Developer Angular",
+      "category": "Frontend",
+      "company": "TechCorp",
+      "description": "We're looking for a Angular.js developer",
+      "location": "Remote",
+      "applied": false
     }
   ]
 }

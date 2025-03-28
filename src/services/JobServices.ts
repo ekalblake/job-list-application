@@ -7,16 +7,35 @@ export class JobServices {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(jobs)
-      }, 3000)
+      }, 1000)
     })
   }
 
   public async searchByTitle(name: string): Promise<IJob[]> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const lowerName = name.toLocaleLowerCase()
+
+        const returnJob = jobs.filter(
+          (job) =>
+            job.title.toLocaleLowerCase().includes(lowerName) ||
+            job.company.toLocaleLowerCase().includes(lowerName) ||
+            job.location.toLocaleLowerCase().includes(lowerName),
+        )
+
+        resolve(returnJob)
+      }, 1000)
+    })
+  }
+
+  public async searchByCategory(name: string): Promise<IJob[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const returnJob = jobs.filter((job) => job.title.includes(name))
+        const returnJob = jobs.filter((job) =>
+          job.category.toLocaleLowerCase().includes(name.toLocaleLowerCase()),
+        )
         resolve(returnJob)
-      }, 3000)
+      }, 1000)
     })
   }
 
@@ -25,7 +44,7 @@ export class JobServices {
       setTimeout(() => {
         const job = jobs.find((job) => job.id == id)
         resolve(job)
-      }, 3000)
+      }, 1000)
     })
   }
 }
