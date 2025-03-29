@@ -68,7 +68,7 @@ export default defineComponent({
         <v-col v-if="!mobile" cols="12" md="3">
           <v-card-title>Similar Jobs</v-card-title>
           <template v-for="job of similarList">
-            <JobItem :job="job" :current-id="currentJob.id" @set-job="setJob" />
+            <JobItem :job="job" :current-id="currentJob?.id" @set-job="setJob" />
           </template>
         </v-col>
       </v-row>

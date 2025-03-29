@@ -13,6 +13,7 @@ export default defineConfig({
     vuetify(),
     vueDevTools(),
   ],
+  base: '/job-list-application/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

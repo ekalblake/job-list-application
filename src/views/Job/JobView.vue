@@ -129,12 +129,13 @@ onMounted(async () => {
               <v-card-text>
                 <v-btn
                   @click="
-                    $router.push({ name: ROUTE_NAME.JOB_DETAIL, params: { id: currentJob.id } })
+                    $router.push({ name: ROUTE_NAME.JOB_DETAIL, params: { id: currentJob?.id } })
                   "
                   variant="elevated"
                   color="success"
-                  >View detail</v-btn
                 >
+                  View details
+                </v-btn>
               </v-card-text>
             </template>
             <v-btn icon variant="outlined" color="success" @click="jobStore.deleteCurrentJob()">
