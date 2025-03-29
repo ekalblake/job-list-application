@@ -1,32 +1,37 @@
-# job-list-application
+# 📘 Project documentation: Job List Application
 
-This template should help get you started developing with Vue 3 in Vite.
+![Job Main Section](src/assets/doc/main.png)
 
-## Recommended IDE Setup
+## 📌 Introducción
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### This project is an application created with Vue3 and Vite, using Vuetify for design user interface. This App allows people to search for new jobs and allow them to apply to a job. Project is also responsive.
 
-## Customize configuration
+## 🚀 Project Configuration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 📂 Instalation and configuration
 
-## Project Setup
+To run this code in local, follow these steps:
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/ekalblake/job-list-application.git
+cd job-list-application
+```
+
+2. Install dependencies:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Start the development server:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+## Project Setup extra
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
@@ -39,3 +44,22 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+## Project Steps
+
+You will be able to find jobs with: Job title, company name, location and category
+
+![Job Main Section](src/assets/doc/main.png)
+
+If you dont put any value, it will display all job list, but if you type for example "Frontend" it will display only those matches.
+
+![Job Main Section](src/assets/doc/search_job.png)
+
+Once you find a job that fits your profile, you can submit an application with:
+
+- Full name (required)
+- Email (required)
+- Phone number
+- Cover letter
+
+![Job Main Section](src/assets/doc/submit_form.png)
